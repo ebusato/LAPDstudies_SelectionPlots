@@ -25,12 +25,16 @@ void SelectionPlots()
 {
   TChain* ch0 = new TChain("tree");
   ch0->Add("/home/ebusato/godaq_rootfiles/analysis_v2.14-calibG2/run110.root");
-  TCut cut0 = "Sat == 0";
+  TCut cut0 = "Sat == 0 && Evt > 2000";
+//   ch0->Add("/home/ebusato/godaq_rootfiles/analysis_v3.3-calibK1/run118.root");
+//   TCut cut0 = "Sat == 0 && Evt < 60000 && Evt > 3400";
   TH1F* hE_NoSel = MakePlot(ch0, cut0, "hE_NoSel", kGreen-2);
 
   TChain* ch1 = new TChain("tree");
   ch1->Add("/home/ebusato/godaq_rootfiles/analysis_v2.19-calibG2/run110LOR.root");
-  TCut cut1 = "NoLORs == 1";
+  TCut cut1 = "NoLORs == 1 && Evt > 2000";
+//    ch1->Add("/home/ebusato/godaq_rootfiles/analysis_v3.3-calibZ1/run118LOR.root");
+//   TCut cut1 = "NoLORs == 1 && Evt < 60000 && Evt > 3400";
   TH1F* hE_Sel = MakePlot(ch1, cut1, "hE_Sel", kGreen-2);
 
   TCanvas* c1 = new TCanvas("c1","c1");
