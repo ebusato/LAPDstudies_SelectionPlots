@@ -17,7 +17,7 @@ TH1F* MakePlot(TChain* ch, TCut cut, TString hName, int color)
   hE->GetZaxis()->SetLabelSize(0.04);
   hE->SetFillStyle(3002);
   hE->SetFillColor(color);
-  hE->Scale(1/hE->Integral());
+  //hE->Scale(1/hE->Integral());
   return hE;
 }
 
